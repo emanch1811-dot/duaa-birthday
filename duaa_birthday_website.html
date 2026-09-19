@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7b4b4b">
+<title>For Duaa — 19 September 🎀</title>
+<style>
+:root{
+  --rose:#7b4b4b;
+  --rose-dark:#563333;
+  --rose-soft:#a87575;
+  --cream:#fff8ed;
+  --cream-2:#f8eadb;
+  --ink:#4d3a36;
+  --white:#fffdf9;
+  --gold:#c99b62;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;font-family:"Segoe UI",Tahoma,sans-serif;
+  color:var(--ink);background:
+  radial-gradient(circle at 15% 15%,rgba(201,155,98,.16),transparent 24%),
+  radial-gradient(circle at 85% 80%,rgba(123,75,75,.12),transparent 25%),
+  linear-gradient(135deg,var(--cream),#f6e9dc 48%,#fffaf2);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+  background-image:radial-gradient(rgba(123,75,75,.22) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.screen{
+  min-height:100vh;padding:22px;display:none;align-items:center;justify-content:center;
+  position:relative;z-index:1;
+}
+.screen.active{display:flex;animation:pageIn .7s ease}
+.card{
+  width:min(650px,100%);background:rgba(255,253,249,.94);
+  backdrop-filter:blur(15px);border:1px solid rgba(123,75,75,.12);
+  border-radius:32px;padding:38px 28px;text-align:center;
+  box-shadow:0 22px 70px rgba(86,51,51,.15);
+}
+.ornament{font-size:23px;letter-spacing:8px;color:var(--rose-soft);margin-bottom:12px}
+.badge{
+  display:inline-block;background:#f1dfd3;color:var(--rose);
+  padding:8px 16px;border-radius:30px;font-size:.82rem;font-weight:800;
+  letter-spacing:.3px
+}
+h1{font-size:clamp(2.1rem,9vw,3.5rem);color:var(--rose-dark);margin:17px 0 7px}
+h2{font-size:clamp(1.8rem,7vw,2.5rem);color:var(--rose-dark);margin:14px 0 8px}
+h3{color:var(--rose)}
+.sub{color:var(--rose-soft);font-style:italic;font-weight:600;line-height:1.6}
+p{font-size:1.02rem;line-height:1.82}
+.message{text-align:left}
+.message p{text-align:left}
+.message .center{text-align:center}
+.signature{font-weight:800;color:var(--rose);margin:26px 0}
+.btn,.wish-btn,.mic-btn{
+  display:inline-block;border:0;text-decoration:none;color:#fff;cursor:pointer;
+  padding:14px 25px;border-radius:50px;font-weight:800;font-size:1rem;
+  background:linear-gradient(135deg,var(--rose),#a87575);
+  box-shadow:0 10px 25px rgba(123,75,75,.22);transition:.25s
+}
+.btn:hover,.wish-btn:hover,.mic-btn:hover{transform:translateY(-3px)}
+.secondary{background:#f0dfd4;color:var(--rose-dark);box-shadow:none}
+.hidden{display:none!important}
+.cake{
+  position:relative;display:inline-block;margin:22px auto 10px;
+  font-size:105px;filter:drop-shadow(0 14px 10px rgba(0,0,0,.08));
+  transition:.25s;user-select:none
+}
+.cake.shake{animation:shake .28s ease}
+.flame{position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:40px}
+.flame.off{display:none}
+.cake.cut{transform:scale(1.06)}
+.status{min-height:50px}
+.progress-wrap{height:12px;width:min(390px,88%);margin:18px auto 10px;background:#eee1d8;border-radius:20px;overflow:hidden}
+.progress{height:100%;width:0;background:linear-gradient(90deg,#c99b62,var(--rose));transition:.25s}
+.percent{font-weight:800;color:var(--rose)}
+textarea{
+  width:100%;height:130px;border:2px solid #ead4c5;border-radius:17px;
+  padding:15px;font:inherit;resize:none;outline:none;background:#fffaf4;color:var(--ink)
+}
+textarea:focus{border-color:var(--rose-soft);box-shadow:0 0 0 4px rgba(123,75,75,.08)}
+.wish-btn{width:100%;margin-top:15px}
+.success{display:none;animation:pop .6s ease}
+.success .big{font-size:58px}
+.divider{height:1px;background:#ead9cc;margin:25px 0}
+.arabic{
+  font-family:Georgia,serif;font-size:1.35rem;line-height:2;color:var(--rose-dark);
+  direction:rtl;margin:22px 0
+}
+.dua{text-align:left}
+.dua p{margin:18px 0}
+.footer{margin-top:28px;color:#a58e84;font-size:.82rem;font-style:italic}
+.navdots{position:fixed;bottom:13px;left:50%;transform:translateX(-50%);z-index:20;
+  display:flex;gap:7px;background:rgba(255,253,249,.85);padding:7px 10px;border-radius:30px;
+  box-shadow:0 8px 25px rgba(86,51,51,.12)}
+.dot{width:8px;height:8px;border-radius:50%;background:#d8c0b4}
+.dot.active{background:var(--rose);width:20px;border-radius:10px}
+.float{position:fixed;bottom:-40px;font-size:22px;opacity:.55;animation:rise 8s linear infinite;pointer-events:none;z-index:0}
+.f1{left:8%}.f2{left:84%;animation-delay:2.5s}.f3{left:46%;animation-delay:4.5s}
+.hug-art{margin:12px auto 5px;width:min(330px,90%);height:290px}
+.hug-art svg{width:100%;height:100%;overflow:visible}
+.final-note{font-size:1.3rem;font-weight:900;color:var(--rose-dark);margin:8px}
+.popup{
+  position:fixed;inset:0;background:rgba(63,37,37,.48);display:none;align-items:center;justify-content:center;
+  z-index:50;padding:20px
+}
+.popup.show{display:flex;animation:fade .3s ease}
+.popup-box{
+  width:min(430px,100%);background:var(--white);border-radius:28px;padding:35px 25px;
+  text-align:center;box-shadow:0 25px 80px rgba(0,0,0,.25)
+}
+.popup-box .happy{font-size:2.8rem}
+.mic-note{font-size:.82rem;color:#9b8176;margin-top:10px}
+@keyframes pageIn{from{opacity:0;transform:translateY(25px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.75)}to{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes shake{0%,100%{transform:rotate(0)}30%{transform:rotate(-5deg)}70%{transform:rotate(5deg)}}
+@keyframes rise{to{transform:translateY(-115vh) rotate(30deg);opacity:0}}
+@media(max-width:480px){
+  .card{padding:29px 19px;border-radius:27px}
+  p{font-size:1rem}.cake{font-size:88px}.flame{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<div class="float f1">✿</div><div class="float f2">♡</div><div class="float f3">✦</div>
+
+<div class="navdots" id="navdots">
+  <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+
+<!-- PAGE 1: CANDLE -->
+<section class="screen active" id="page1">
+<main class="card">
+  <div class="ornament">✦ ✿ ♡ ✿ ✦</div>
+  <div class="badge">19 September • Duaa's day 🎀</div>
+  <h1>Happiest Birthday, Duaa! 🤍</h1>
+  <div class="sub">Okay birthday girl… first mission. Blow the candle. 🕯️</div>
+
+  <div class="cake" id="cake" aria-label="birthday cake">
+    <span id="flame" class="flame">🔥</span>🎂
+  </div>
+
+  <p class="status" id="candleStatus">
+    Make a wish in your heart… then <b>blow on the candle</b>. ✨
+  </p>
+
+  <button class="mic-btn" id="startMic">🕯️ Blow the Candle</button>
+  <button class="mic-btn secondary hidden" id="tapBlow">Tap Here If Mic Doesn't Work</button>
+  <div class="mic-note" id="micNote">Microphone access is only used for detecting a blow and is not recorded.</div>
+
+  <div class="progress-wrap"><div class="progress" id="candleProgress"></div></div>
+  <div class="percent" id="percent">Candle: glowing ✨</div>
+</main>
+</section>
+
+<!-- PAGE 2: WISH -->
+<section class="screen" id="page2">
+<main class="card">
+  <div class="ornament">☾ ✦ ✿ ✦ ☾</div>
+  <div class="badge">Birthday mission #2</div>
+  <h2>Make A Wish ✨</h2>
+  <div class="sub">Okay madam, serious moment for approximately 10 seconds. 😂</div>
+  <p>Close your eyes, think of something beautiful, and write your birthday wish below…</p>
+  <textarea id="wishInput" placeholder="Type your birthday wish here... ✨"></textarea>
+  <button class="wish-btn" id="sendWish">Make My Wish ✨</button>
+
+  <div class="success" id="wishSuccess">
+    <div class="big">🌙✨🤍</div>
+    <h3>Wish sent into the universe!</h3>
+    <p>Ab jo likh diya hai, uski editing allowed nahi. 😭🎀</p>
+    <button class="btn" onclick="goTo(3)">Open Your Message 💌</button>
+  </div>
+</main>
+</section>
+
+<!-- PAGE 3: MESSAGE -->
+<section class="screen" id="page3">
+<main class="card message">
+  <div class="center">
+    <div class="ornament">♡ ✿ ♡ ✿ ♡</div>
+    <div class="badge">For my favorite person 🎀</div>
+    <h2>Happiest Birthday To My<br>Part-Time Idiot 😭🎀</h2>
+  </div>
+
+  <p><b>Happiest birthday to my favorite person, my part-time idiot and full-time drama queen. 😭😂🎀</b></p>
+
+  <p>You’re officially another year older… but thankfully, <b>tumhari stupidity ka level abhi bhi bilkul same hai.</b> 😭😂 And honestly? I wouldn’t have it any other way.</p>
+
+  <p>Thank you for being exactly the way you are — for listening to my unnecessary stories, tolerating my random moods, and matching my energy when we both should probably be acting normal. 😂</p>
+
+  <p>Life would genuinely be <b>SO boring</b> without you and your daily dose of drama, nonsense and chaos. 🫶🏻💗</p>
+
+  <p>I’m genuinely so lucky to have a bestie like you. <b>You’re my favorite person, meri kamini churail.</b> 😭😂💗</p>
+
+  <p>Thank you for all the random, silly memories we’ve made — the kind of memories that make absolutely no sense to anyone else but somehow mean everything to us. 🥹</p>
+
+  <p>And honestly, <b>4 saal ka yeh safar</b>… so many stupid conversations, random moments, unnecessary drama and endless laughter later, I’m just really grateful that I got <i>you</i> as my bestie. 🎀</p>
+
+  <p>So today, madam, <b>enjoy your day properly.</b> Cake khao, pictures banao, attention lo, aur birthday girl banne ka poora faida uthao. 😭😂🎂</p>
+
+  <p class="center"><b>Getting older is mandatory…<br>but growing up is absolutely NOT. 😌😂</b></p>
+
+  <p>And haan, ek bohat important reminder:</p>
+  <p><b>Mujhe tumhari doodh pilai karni hai, so shaadi pe bulana mat bhoolna.</b> 😭😂🎀<br>
+  Invitation card pe mera naam <b>VIP list</b> mein hona chahiye, samjhi? 👀</p>
+
+  <div class="divider"></div>
+
+  <p class="center"><i>“Kuch log zindagi mein bas dost banke nahi aate…<br>woh zindagi ka khoobsurat hissa ban jaate hain.”</i> 🤍</p>
+
+  <div class="center"><button class="btn" onclick="goTo(4)">Now For Your Dua 🤲🏻</button></div>
+</main>
+</section>
+
+<!-- PAGE 4: PRAYERS -->
+<section class="screen" id="page4">
+<main class="card dua">
+  <div class="center">
+    <div class="ornament">☾ ✦ 🤍 ✦ ☾</div>
+    <div class="badge">A little dua for you</div>
+    <h2>May Allah Write You<br>The Most Beautiful Future</h2>
+  </div>
+
+  <p>I hope this new year of your life brings you everything your heart quietly wishes for.</p>
+
+  <p><b>May your every prayer have the fragrance of “كُنْ فَيَكُونُ” —</b><br>
+  <i>the beauty of Allah saying “Be,” and it is.</i> 🤍</p>
+
+  <p>May Allah bless you with a beautiful future, endless happiness, good health, peace, success, and people who genuinely love, respect and value you.</p>
+
+  <p><b>Allah tumhein ek bohat muhabbat karne wala, caring aur pyara husband de</b> — Salar Sikandar jaisa handsome, Yumna jaisa charming, aur itna caring ke tumhari har choti si baat bhi notice kare. 😭😂💗</p>
+
+  <p>6 ft ka ho ya uske aas-paas, <b>bas dil ka acha ho</b>, tumhari respect kare, tumhari silly baatein patiently sune, tumhari khushi ka khayal rakhe, aur tumhari drama-queen tendencies ko lifetime subscription ki tarah happily accept kare. 😂🎀</p>
+
+  <p>Aur haan… <b>handsome toh ho hi</b>, warna madam ka standard kaise maintain hoga? 👀😭</p>
+
+  <p>May Allah put <b>barakah in your life, sakoon in your heart, and khair in everything that is written for you.</b> May every door that opens for you lead to something beautiful, and may every prayer you make find its way to a better answer than you imagined.</p>
+
+  <div class="arabic">اللهم اجعل عامها هذا عامًا مليئًا بالخير والبركة والسعادة، وحقق لها ما تتمنى، واكتب لها أجمل الأقدار.</div>
+
+  <p class="center"><b>Ameen. 🤲🏻🤍</b></p>
+
+  <div class="center"><button class="btn" onclick="goTo(5)">One Last Surprise 🎀</button></div>
+</main>
+</section>
+
+<!-- PAGE 5: HUG -->
+<section class="screen" id="page5">
+<main class="card">
+  <div class="ornament">✿ ♡ ✿ ♡ ✿</div>
+  <div class="badge">For my bestie 🤍</div>
+
+  <div class="hug-art" aria-label="two best friends hugging">
+    <svg viewBox="0 0 330 290" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dress1" x1="0" x2="1"><stop offset="0" stop-color="#8b5656"/><stop offset="1" stop-color="#6b4040"/></linearGradient>
+        <linearGradient id="dress2" x1="0" x2="1"><stop offset="0" stop-color="#c18b72"/><stop offset="1" stop-color="#9f6c58"/></linearGradient>
+      </defs>
+      <ellipse cx="165" cy="267" rx="108" ry="14" fill="#ead9cc"/>
+      <circle cx="112" cy="76" r="37" fill="#e9b995"/>
+      <circle cx="218" cy="76" r="37" fill="#d9a17f"/>
+      <path d="M76 72 Q110 24 148 64 Q132 31 104 31 Q79 37 76 72" fill="#4a2f2d"/>
+      <path d="M184 66 Q222 22 258 67 Q249 33 219 30 Q191 34 184 66" fill="#3e2928"/>
+      <circle cx="100" cy="79" r="3" fill="#4d3a36"/><circle cx="124" cy="79" r="3" fill="#4d3a36"/>
+      <circle cx="206" cy="79" r="3" fill="#4d3a36"/><circle cx="230" cy="79" r="3" fill="#4d3a36"/>
+      <path d="M104 96 Q112 103 121 96" fill="none" stroke="#8b4f4f" stroke-width="3" stroke-linecap="round"/>
+      <path d="M210 96 Q219 103 228 96" fill="none" stroke="#8b4f4f" stroke-width="3" stroke-linecap="round"/>
+      <path d="M79 119 Q112 101 145 121 L161 244 Q112 260 63 242 Z" fill="url(#dress1)"/>
+      <path d="M185 120 Q218 101 251 119 L268 243 Q218 260 169 243 Z" fill="url(#dress2)"/>
+      <!-- arms around each other -->
+      <path d="M83 139 Q136 154 183 137 Q193 134 198 145 Q201 157 188 162 Q132 179 75 157 Q66 152 69 143 Q73 136 83 139Z" fill="#e9b995"/>
+      <path d="M248 139 Q195 154 147 137 Q137 134 132 145 Q129 157 142 162 Q198 179 256 157 Q265 152 262 143 Q258 136 248 139Z" fill="#d9a17f"/>
+      <path d="M109 124 Q111 108 113 101" stroke="#e9b995" stroke-width="11" stroke-linecap="round"/>
+      <path d="M220 124 Q219 108 218 101" stroke="#d9a17f" stroke-width="11" stroke-linecap="round"/>
+      <path d="M109 174 Q132 193 151 174" fill="none" stroke="#fff1e5" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+      <path d="M180 174 Q201 193 220 174" fill="none" stroke="#fff1e5" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+      <text x="165" y="214" text-anchor="middle" font-size="24">♡</text>
+      <path d="M71 53 Q80 40 91 35" stroke="#c99b62" stroke-width="4" fill="none"/>
+      <path d="M238 43 Q248 49 255 61" stroke="#c99b62" stroke-width="4" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="final-note">Luv U, my favorite idiot. 🫂🤍</div>
+  <p>Whatever happens, wherever life takes us —<br><b>meri bestie wali jagah reserved hai. 🎀</b></p>
+  <p class="sub">Happy Birthday, Duaa. 19 September will always be your day. 🌷</p>
+  <div class="footer">Made with friendship, chaos & way too much love. 🤍</div>
+</main>
+</section>
+
+<div class="popup" id="birthdayPopup">
+  <div class="popup-box">
+    <div class="happy">🎉🎂🤍✨</div>
+    <h2>HAPPY BIRTHDAY<br>BESTIE!</h2>
+    <p>The candle is officially blown. 😭🎀<br>Now your birthday surprise begins!</p>
+    <button class="btn" onclick="closePopupAndGo()">Continue 💌</button>
+  </div>
+</div>
+
+<script>
+let currentPage=1;
+let blown=false;
+const dots=[...document.querySelectorAll('.dot')];
+
+function goTo(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+  currentPage=n;
+  dots.forEach((d,i)=>d.classList.toggle('active',i===n-1));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function candleBlown(){
+  if(blown)return;
+  blown=true;
+  document.getElementById('flame').classList.add('off');
+  document.getElementById('cake').classList.add('cut');
+  document.getElementById('candleProgress').style.width='100%';
+  document.getElementById('percent').textContent='Candle: blown out! 🎉';
+  document.getElementById('candleStatus').innerHTML='<b>Now tap the candle… 👀</b><br>There is a little surprise waiting for you.';
+  document.getElementById('startMic').classList.add('hidden');
+  document.getElementById('tapBlow').classList.remove('hidden');
+  document.getElementById('tapBlow').textContent='🎂 Tap The Candle';
+  document.getElementById('cake').style.cursor='pointer';
+}
+
+document.getElementById('startMic').addEventListener('click',async()=>{
+  const note=document.getElementById('micNote');
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const analyser=ctx.createAnalyser();
+    analyser.fftSize=512;
+    const source=ctx.createMediaStreamSource(stream);
+    source.connect(analyser);
+    const data=new Uint8Array(analyser.fftSize);
+    let loudFrames=0;
+    note.textContent='Listening… give the candle a gentle blow 💨🕯️';
+    function listen(){
+      if(blown){stream.getTracks().forEach(t=>t.stop());ctx.close();return;}
+      analyser.getByteTimeDomainData(data);
+      let sum=0;
+      for(let i=0;i<data.length;i++){let v=(data[i]-128)/128;sum+=v*v;}
+      const rms=Math.sqrt(sum/data.length);
+      if(rms>0.16) loudFrames++; else loudFrames=Math.max(0,loudFrames-1);
+      if(loudFrames>=5){candleBlown();stream.getTracks().forEach(t=>t.stop());ctx.close();return;}
+      requestAnimationFrame(listen);
+    }
+    listen();
+  }catch(e){
+    note.textContent='Mic permission was unavailable — use the tap button instead. 🤍';
+    document.getElementById('tapBlow').classList.remove('hidden');
+  }
+});
+
+document.getElementById('tapBlow').addEventListener('click',()=>{
+  if(!blown){candleBlown();return;}
+  document.getElementById('birthdayPopup').classList.add('show');
+});
+
+document.getElementById('cake').addEventListener('click',()=>{
+  if(blown)document.getElementById('birthdayPopup').classList.add('show');
+});
+
+function closePopupAndGo(){
+  document.getElementById('birthdayPopup').classList.remove('show');
+  goTo(2);
+}
+
+document.getElementById('sendWish').addEventListener('click',()=>{
+  const wish=document.getElementById('wishInput');
+  if(!wish.value.trim()){alert('Please type a wish first! ✨');return;}
+  document.getElementById('wishSuccess').style.display='block';
+  burst();
+});
+
+function burst(){
+  for(let i=0;i<20;i++){
+    const e=document.createElement('span');
+    e.textContent=['♡','✦','✿','🤍','🎀'][Math.floor(Math.random()*5)];
+    e.style.position='fixed';e.style.left='50%';e.style.top='50%';
+    e.style.fontSize='22px';e.style.zIndex='60';e.style.pointerEvents='none';
+    document.body.appendChild(e);
+    const angle=Math.random()*Math.PI*2, distance=90+Math.random()*270;
+    e.animate([
+      {transform:'translate(-50%,-50%) scale(.5)',opacity:1},
+      {transform:`translate(${Math.cos(angle)*distance}px,${Math.sin(angle)*distance}px) scale(1.25)`,opacity:0}
+    ],{duration:1100,easing:'ease-out'});
+    setTimeout(()=>e.remove(),1150);
+  }
+}
+</script>
+</body>
+</html>
